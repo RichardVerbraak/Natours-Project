@@ -420,22 +420,17 @@ body {
         /* line 155, sass/components/_cards.scss */
         .card__details ul li:not(:last-child) {
           border-bottom: 1px solid #eee; }
-  /* line 163, sass/components/_cards.scss */
-  .card__cta {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; }
-  /* line 176, sass/components/_cards.scss */
+  /* line 173, sass/components/_cards.scss */
   .card__price-box {
     display: flex;
     flex-direction: column;
     align-items: center;
     color: #fff; }
-  /* line 184, sass/components/_cards.scss */
+  /* line 181, sass/components/_cards.scss */
   .card__price-only {
     font-size: 1.4rem;
     text-transform: uppercase; }
-  /* line 189, sass/components/_cards.scss */
+  /* line 186, sass/components/_cards.scss */
   .card__price-value {
     font-size: 6rem;
     font-weight: 100; }
