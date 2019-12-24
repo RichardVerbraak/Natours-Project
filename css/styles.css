@@ -1,0 +1,474 @@
+/* line 2, sass/base/_base.scss */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+/* line 12, sass/base/_base.scss */
+html {
+  font-size: 62.5%; }
+
+/* line 17, sass/base/_base.scss */
+body {
+  box-sizing: border-box; }
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInButton {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+/* line 2, sass/base/_typography.scss */
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem; }
+
+/* line 2, sass/base/_utilities.scss */
+.u-center-text {
+  text-align: center; }
+
+/* line 6, sass/base/_utilities.scss */
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem; }
+
+/* line 7, sass/base/_utilities.scss */
+.u-margin-bottom-medium {
+  margin-bottom: 4rem; }
+
+/* line 8, sass/base/_utilities.scss */
+.u-margin-bottom-big {
+  margin-bottom: 8rem; }
+
+/* line 10, sass/base/_utilities.scss */
+.u-margin-top-big {
+  margin-top: 8rem; }
+
+/* line 11, sass/base/_utilities.scss */
+.u-margin-top-huge {
+  margin-top: 10rem; }
+
+/* line 7, sass/components/_button.scss */
+.btn {
+  /* The styles that are defined inside of the animation are now applied before the animation starts (we delayed the animation by .75s!) */ }
+  /* line 9, sass/components/_button.scss */
+  .btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.6rem;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative; }
+  /* line 20, sass/components/_button.scss */
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    /* Makes the pseudo button grow and then made invisible */ }
+    /* line 25, sass/components/_button.scss */
+    .btn:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }
+  /* line 31, sass/components/_button.scss */
+  .btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  /* line 36, sass/components/_button.scss */
+  .btn--white {
+    background-color: #fff;
+    color: #777; }
+    /* line 40, sass/components/_button.scss */
+    .btn--white::after {
+      background-color: #fff; }
+  /* line 45, sass/components/_button.scss */
+  .btn--green {
+    background-color: #55c57a;
+    color: #fff; }
+    /* line 49, sass/components/_button.scss */
+    .btn--green::after {
+      background-color: #55c57a; }
+  /* line 54, sass/components/_button.scss */
+  .btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s; }
+  /* line 68, sass/components/_button.scss */
+  .btn--animated {
+    animation: moveInButton .5s ease-out .75s;
+    animation-fill-mode: backwards; }
+
+/* line 74, sass/components/_button.scss */
+.btn-learn-more {
+  transition: all .5s; }
+  /* line 77, sass/components/_button.scss */
+  .btn-learn-more:link, .btn-learn-more:visited {
+    font-size: 1.6rem;
+    color: #55c57a;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid #55c57a;
+    padding: 3px; }
+  /* line 87, sass/components/_button.scss */
+  .btn-learn-more:hover {
+    background-color: #55c57a;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15); }
+  /* line 96, sass/components/_button.scss */
+  .btn-learn-more:active {
+    transform: translateY(0);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); }
+
+/* line 6, sass/components/_header.scss */
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  /* line 20, sass/components/_header.scss */
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  /* line 27, sass/components/_header.scss */
+  .header__logo {
+    height: 3.5rem; }
+  /* line 34, sass/components/_header.scss */
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
+
+/* line 46, sass/components/_header.scss */
+.heading-primary {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+  backface-visibility: hidden; }
+  /* line 55, sass/components/_header.scss */
+  .heading-primary--main {
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation: moveInLeft 1s ease-out; }
+  /* line 68, sass/components/_header.scss */
+  .heading-primary--sub {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.7rem;
+    animation: moveInRight 1s ease-out; }
+
+/* line 77, sass/components/_header.scss */
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: .2rem;
+  transition: all 1s; }
+  /* line 91, sass/components/_header.scss */
+  .heading-secondary:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
+
+/* line 100, sass/components/_header.scss */
+.about__box {
+  display: flex;
+  width: 114rem;
+  margin: 0 auto; }
+
+/* line 108, sass/components/_header.scss */
+.text__content {
+  flex: 0 0 50%;
+  margin-right: 6rem; }
+  /* line 112, sass/components/_header.scss */
+  .text__content--heading {
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase; }
+  /* line 118, sass/components/_header.scss */
+  .text__content--sub {
+    font-size: 1.6rem; }
+    /* line 121, sass/components/_header.scss */
+    .text__content--sub:not(:last-child) {
+      margin-bottom: 3rem; }
+
+/* line 1, sass/components/_composition.scss */
+.composition {
+  flex: 0 0 50%;
+  position: relative; }
+  /* line 7, sass/components/_composition.scss */
+  .composition__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    position: absolute;
+    transition: all .3s;
+    z-index: 1;
+    outline-offset: 2rem; }
+    /* line 16, sass/components/_composition.scss */
+    .composition__photo--p1 {
+      left: 0;
+      top: -2rem; }
+    /* line 21, sass/components/_composition.scss */
+    .composition__photo--p2 {
+      right: 0;
+      top: 2rem; }
+    /* line 26, sass/components/_composition.scss */
+    .composition__photo--p3 {
+      left: 20%;
+      top: 10rem; }
+    /* line 31, sass/components/_composition.scss */
+    .composition__photo:hover {
+      outline: 1.5rem solid #55c57a;
+      transform: scale(1.05) translateY(-0.5rem);
+      box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
+      z-index: 10; }
+  /* line 45, sass/components/_composition.scss */
+  .composition:hover .composition__photo:not(:hover) {
+    transform: scale(0.85); }
+
+/* line 1, sass/components/_features.scss */
+.features {
+  display: flex;
+  width: 114rem;
+  margin: 0 auto; }
+  /* line 7, sass/components/_features.scss */
+  .features__box {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 1.5rem;
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    transition: transform .3s; }
+    /* line 20, sass/components/_features.scss */
+    .features__box:not(:last-child) {
+      margin-right: 6rem; }
+    /* line 24, sass/components/_features.scss */
+    .features__box--icon {
+      font-size: 6rem;
+      margin-bottom: .5rem;
+      background-image: linear-gradient(to right, #7ed56f, #28b485);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent; }
+    /* line 33, sass/components/_features.scss */
+    .features__box--heading {
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-transform: uppercase; }
+    /* line 39, sass/components/_features.scss */
+    .features__box:hover {
+      transform: translateY(-1rem) scale(1.03); }
+
+/* line 3, sass/components/_cards.scss */
+.cards {
+  display: flex;
+  max-width: 114rem;
+  margin: 0 auto;
+  justify-content: space-between; }
+
+/* line 11, sass/components/_cards.scss */
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  flex: 1;
+  height: 52rem;
+  position: relative; }
+  /* line 23, sass/components/_cards.scss */
+  .card__side {
+    font-size: 2rem;
+    height: 52rem;
+    transition: all .8s ease;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden; }
+    /* line 40, sass/components/_cards.scss */
+    .card__side--front {
+      background-color: #fff; }
+    /* line 45, sass/components/_cards.scss */
+    .card__side--back {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      transform: rotateY(180deg); }
+      /* line 52, sass/components/_cards.scss */
+      .card__side--back-1 {
+        background-image: linear-gradient(to right bottom, #ffb900, #ff7730); }
+      /* line 56, sass/components/_cards.scss */
+      .card__side--back-2 {
+        background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
+      /* line 60, sass/components/_cards.scss */
+      .card__side--back-3 {
+        background-image: linear-gradient(to right bottom, #2998ff, #5643fa); }
+  /* line 67, sass/components/_cards.scss */
+  .card:hover .card__side--front {
+    transform: rotateY(-180deg); }
+  /* line 71, sass/components/_cards.scss */
+  .card:hover .card__side--back {
+    transform: rotateY(0); }
+  /* line 75, sass/components/_cards.scss */
+  .card:not(:last-child) {
+    margin-right: 6rem; }
+  /* line 80, sass/components/_cards.scss */
+  .card__picture {
+    background-size: cover;
+    height: 23rem;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+    /* line 89, sass/components/_cards.scss */
+    .card__picture--1 {
+      background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url(../img/nat-5.jpg); }
+    /* line 94, sass/components/_cards.scss */
+    .card__picture--2 {
+      background-image: linear-gradient(to right bottom, #7ed56f, #28b485), url(../img/nat-6.jpg); }
+    /* line 99, sass/components/_cards.scss */
+    .card__picture--3 {
+      background-image: linear-gradient(to right bottom, #2998ff, #5643fa), url(../img/nat-7.jpg); }
+  /* line 105, sass/components/_cards.scss */
+  .card__heading {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    color: #fff;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 75%; }
+  /* line 118, sass/components/_cards.scss */
+  .card__heading-span {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone; }
+    /* line 123, sass/components/_cards.scss */
+    .card__heading-span--1 {
+      background-image: linear-gradient(to right bottom, rgba(255, 185, 0, 0.85), rgba(255, 119, 48, 0.85)); }
+    /* line 129, sass/components/_cards.scss */
+    .card__heading-span--2 {
+      background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.85), rgba(40, 180, 133, 0.85)); }
+    /* line 135, sass/components/_cards.scss */
+    .card__heading-span--3 {
+      background-image: linear-gradient(to right bottom, rgba(41, 152, 255, 0.85), rgba(86, 67, 250, 0.85)); }
+  /* line 142, sass/components/_cards.scss */
+  .card__details {
+    padding: 3rem; }
+    /* line 145, sass/components/_cards.scss */
+    .card__details ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto; }
+      /* line 150, sass/components/_cards.scss */
+      .card__details ul li {
+        text-align: center;
+        font-size: 1.5rem;
+        padding: 1rem; }
+        /* line 155, sass/components/_cards.scss */
+        .card__details ul li:not(:last-child) {
+          border-bottom: 1px solid #eee; }
+  /* line 163, sass/components/_cards.scss */
+  .card__cta {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+  /* line 176, sass/components/_cards.scss */
+  .card__price-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff; }
+  /* line 184, sass/components/_cards.scss */
+  .card__price-only {
+    font-size: 1.4rem;
+    text-transform: uppercase; }
+  /* line 189, sass/components/_cards.scss */
+  .card__price-value {
+    font-size: 6rem;
+    font-weight: 100; }
+
+/* line 2, sass/components/_story.scss */
+.story {
+  width: 75%;
+  margin: 0 auto; }
+
+/* line 2, sass/pages/_home.scss */
+.section-about {
+  background-color: #f7f7f7;
+  padding: 25rem 0;
+  margin-top: -20vh; }
+
+/* line 11, sass/pages/_home.scss */
+.section-features {
+  padding: 20rem 0;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/nat-4.jpg");
+  background-size: cover;
+  transform: skewY(-7deg);
+  margin-top: -12rem; }
+  /* line 22, sass/pages/_home.scss */
+  .section-features > * {
+    transform: skewY(7deg); }
+
+/* line 27, sass/pages/_home.scss */
+.section-tours {
+  background-color: #f7f7f7;
+  padding: 25rem 0 15rem 0;
+  margin-top: -11rem; }
+
+/* line 33, sass/pages/_home.scss */
+.section-stories {
+  padding: 15rem 0;
+  background-color: #f7f7f7; }

@@ -1,0 +1,126 @@
+// top doesn't get cropped out when resizing with backposition 
+// Polygon x and y are clockwise (top-left -> top-right -> botttom-right -> bottom-left)
+// Clippy is a handy tool for this
+// Could be treated as a layout or component, I chose component because it feels like one
+
+.header {
+    height: 95vh;
+    background-image: linear-gradient(to right bottom,
+        rgba($color-primary-light ,0.8),
+        rgba($color-primary-dark, 0.8)),
+        url('../img/hero.jpg');
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    // top and left start counting from the parents element which has its position set to relative (header)
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    // Width will be scaled automatically by the browser, no need to specify
+    &__logo {
+        height: 3.5rem;
+    }
+
+    // The box is center in the header but the content within should shift to the center as well, so we shift the x and y axis with -50%
+    // the top and left value is in relation to the header while the translate is in relation to the element itself
+    // Text align centers the button since it's just text
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+}
+
+// Backface visibility somehow fixes the shakey animations, it's unclear why for most developers
+// Could be moved into typography folder
+// I added display: flex later on and removed both display: block from --main and --sub
+.heading-primary {
+    display: flex;
+    flex-direction: column;
+    color: $color-white;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+
+    backface-visibility: hidden;
+
+    &--main {
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+        
+        animation: moveInLeft 1s ease-out;
+        
+           
+        //     animation-delay: 3s; 
+        //     animation-iteration-count: 3;
+    
+    }
+
+    &--sub {
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.7rem;
+    
+        animation: moveInRight 1s ease-out;
+    }
+}
+
+.heading-secondary {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    // Now the background is clipped to the text and when the text color is made transparent, the clipped part shows through
+    display: inline-block;
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    -webkit-background-clip: text;
+    background-clip: text;    
+    color: transparent;
+    letter-spacing: .2rem;
+    transition: all 1s;
+
+    &:hover {
+        transform: skewY(2deg) skewX(15deg) scale(1.1);
+        text-shadow: .5rem 1rem 2rem rgba(black, .2);
+    }
+}
+
+//////////////////////
+// ABOUT BOX
+// content is 1140 px long (grid width var)
+.about__box {
+    display: flex;
+    width: $grid-width;
+    margin: 0 auto;
+}
+
+//////////////////////
+// TEXT CONTENT
+.text__content {
+    flex: 0 0 50%;
+    margin-right: 6rem;
+
+    &--heading {
+        font-size: $default-font-size;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    &--sub {
+        font-size: $default-font-size;
+
+        &:not(:last-child) {
+            margin-bottom: 3rem;
+        }
+        
+    }
+}

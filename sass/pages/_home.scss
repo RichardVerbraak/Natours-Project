@@ -1,0 +1,36 @@
+// STYLES SPECIFIC TO OUR HOMEPAGE
+.section-about {
+    background-color: $color-grey-light-1;
+
+    // this margin moves the section into the header to cover up the whitespace left behind from the clipped image (remove the margin to see why) calculated by the vh of the clipped thing
+    padding: 25rem 0;
+    margin-top: -20vh;
+}
+
+// Its modern to add a lot of whitespace with padding like this to create a spacious feeling to it
+.section-features {
+    padding: 20rem 0;
+    background-image: linear-gradient(to right bottom,
+        rgba($color-primary-light ,0.8),
+        rgba($color-primary-dark, 0.8)),
+        url('../img/nat-4.jpg');
+    background-size: cover;    
+    transform: skewY(-7deg);
+    margin-top: -12rem;
+
+    // Select all direct childs (features container that has all the boxes)
+    & > * {
+        transform: skewY(7deg);
+    }           
+}
+
+.section-tours {
+    background-color: $color-grey-light-1;
+    padding: 25rem 0 15rem 0;
+    margin-top: -11rem;
+}
+
+.section-stories {
+    padding: 15rem 0;
+    background-color: $color-grey-light-1;
+}

@@ -1,0 +1,19 @@
+// Slightly better practice to have all elements inherit the box-sizing like so 
+*, 
+*::after, 
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+// This is done in % so people can still set their own font-sizes (bad eye sight etc.) this % = 10px
+// Defines the 1rem value
+html {
+    font-size: 62.5%;
+}
+
+
+body {
+    box-sizing: border-box;
+}
