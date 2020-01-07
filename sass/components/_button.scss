@@ -4,9 +4,9 @@
 //     The transition property allows you to define / control the transition between two states of an element
 //     now we can say how the animation runs between start and end state, in this case it makes the effect run smoothly instead of snappy
 // */
-.btn {    
+.btn {   
 
-    &:link, &:visited {
+    &, &:link, &:visited {
         text-transform: uppercase;
         text-decoration: none;
         font-size: $default-font-size;
@@ -15,6 +15,11 @@
         border-radius: 10rem;
         transition: all .2s;
         position: relative;
+
+        // Change for the <button> element
+        // Has to be in here because we still want these above styles on our button also (I got really confused on this)  
+        border: none;
+        cursor: pointer;              
     }
 
     &:hover {
@@ -28,7 +33,10 @@
         }
     }
 
-    &:active {
+    // &:focus and outline: none added later during form button, so we don't the blue outline on clicking but rather the box shadow effect happening    
+    &:active,
+    &:focus {
+        outline: none;
         transform: translateY(-1px);
         box-shadow: 0 .5rem 1rem rgba($color-black, .2);
     }
