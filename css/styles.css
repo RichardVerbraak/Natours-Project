@@ -50,29 +50,29 @@ body {
   color: #777;
   padding: 3rem; }
 
-/* line 2, sass/base/_utilities.scss */
+/* line 3, sass/base/_utilities.scss */
 .u-center-text {
-  text-align: center; }
-
-/* line 6, sass/base/_utilities.scss */
-.u-margin-bottom-small {
-  margin-bottom: 1.5rem; }
+  text-align: center !important; }
 
 /* line 7, sass/base/_utilities.scss */
-.u-margin-bottom-medium {
-  margin-bottom: 4rem; }
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem !important; }
 
 /* line 8, sass/base/_utilities.scss */
-.u-margin-bottom-big {
-  margin-bottom: 8rem; }
+.u-margin-bottom-medium {
+  margin-bottom: 4rem !important; }
 
-/* line 10, sass/base/_utilities.scss */
-.u-margin-top-big {
-  margin-top: 8rem; }
+/* line 9, sass/base/_utilities.scss */
+.u-margin-bottom-big {
+  margin-bottom: 8rem !important; }
 
 /* line 11, sass/base/_utilities.scss */
+.u-margin-top-big {
+  margin-top: 8rem !important; }
+
+/* line 12, sass/base/_utilities.scss */
 .u-margin-top-huge {
-  margin-top: 10rem; }
+  margin-top: 10rem !important; }
 
 /* line 7, sass/components/_button.scss */
 .btn {
@@ -132,10 +132,10 @@ body {
     animation-fill-mode: backwards; }
 
 /* line 74, sass/components/_button.scss */
-.btn-learn-more {
+.btn-text {
   transition: all .5s; }
   /* line 77, sass/components/_button.scss */
-  .btn-learn-more:link, .btn-learn-more:visited {
+  .btn-text:link, .btn-text:visited {
     font-size: 1.6rem;
     color: #55c57a;
     display: inline-block;
@@ -143,13 +143,13 @@ body {
     border-bottom: 1px solid #55c57a;
     padding: 3px; }
   /* line 87, sass/components/_button.scss */
-  .btn-learn-more:hover {
+  .btn-text:hover {
     background-color: #55c57a;
     color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15); }
   /* line 96, sass/components/_button.scss */
-  .btn-learn-more:active {
+  .btn-text:active {
     transform: translateY(0);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); }
 
@@ -435,10 +435,180 @@ body {
     font-size: 6rem;
     font-weight: 100; }
 
-/* line 2, sass/components/_story.scss */
+/* line 4, sass/components/_story.scss */
+.stories {
+  max-width: 114rem;
+  height: 63rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; }
+
+/* line 18, sass/components/_story.scss */
 .story {
   width: 75%;
-  margin: 0 auto; }
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: 1.6rem;
+  transform: skewX(-12deg); }
+  /* line 35, sass/components/_story.scss */
+  .story__shape {
+    position: relative;
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg);
+    overflow: hidden; }
+  /* line 52, sass/components/_story.scss */
+  .story__img {
+    height: 100%;
+    transform: translateX(-3.5rem) scale(1.4);
+    transition: all .5s;
+    backface-visibility: hidden; }
+  /* line 61, sass/components/_story.scss */
+  .story__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s;
+    backface-visibility: hidden; }
+  /* line 75, sass/components/_story.scss */
+  .story__text {
+    transform: skewX(12deg); }
+  /* line 79, sass/components/_story.scss */
+  .story__heading {
+    font-weight: 700;
+    text-transform: uppercase; }
+  /* line 84, sass/components/_story.scss */
+  .story:hover .story__caption {
+    transform: translate(-50%, -50%);
+    opacity: 1; }
+  /* line 89, sass/components/_story.scss */
+  .story:hover .story__img {
+    transform: translateX(-3.5rem) scale(1);
+    filter: blur(3px) brightness(80%); }
+
+/* line 2, sass/components/_bg-video.scss */
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: .15; }
+  /* line 14, sass/components/_bg-video.scss */
+  .bg-video__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; }
+
+/* line 3, sass/components/_form.scss */
+.form__group:not(:last-child) {
+  margin-bottom: 2rem; }
+
+/* line 8, sass/components/_form.scss */
+.form__input {
+  font-size: 1.5rem;
+  font-family: inherit;
+  color: inherit;
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-bottom: 3px solid transparent;
+  width: 90%;
+  display: block;
+  transition: all .3s; }
+  /* line 23, sass/components/_form.scss */
+  .form__input:focus {
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #55c57a; }
+    /* line 28, sass/components/_form.scss */
+    .form__input:focus:invalid {
+      border-bottom: 3px solid #ff7730; }
+  /* line 33, sass/components/_form.scss */
+  .form__input::-webkit-input-placeholder {
+    color: #999; }
+
+/* line 38, sass/components/_form.scss */
+.form__label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 2rem;
+  margin-top: .7rem;
+  display: block;
+  transition: all .3s; }
+
+/* line 50, sass/components/_form.scss */
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem); }
+
+/* line 57, sass/components/_form.scss */
+.form__radio-group {
+  position: relative; }
+
+/* line 62, sass/components/_form.scss */
+.form__radio-input {
+  display: none; }
+
+/* line 66, sass/components/_form.scss */
+.form__radio-label {
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding-left: 4.5rem; }
+
+/* line 73, sass/components/_form.scss */
+.form__radio-button {
+  height: 3rem;
+  width: 3rem;
+  border: 5px solid #55c57a;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  top: -.1rem;
+  left: 0; }
+  /* line 85, sass/components/_form.scss */
+  .form__radio-button::after {
+    content: "";
+    display: block;
+    background-color: #55c57a;
+    height: 1.3rem;
+    width: 1.3rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity .2s; }
+
+/* line 102, sass/components/_form.scss */
+.form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
+  opacity: 1; }
+
+/* line 108, sass/components/_form.scss */
+.radio-container {
+  display: flex;
+  justify-content: space-between;
+  width: 85%; }
 
 /* line 2, sass/pages/_home.scss */
 .section-about {
@@ -465,5 +635,27 @@ body {
 
 /* line 33, sass/pages/_home.scss */
 .section-stories {
+  position: relative;
+  padding: 15rem 0; }
+
+/* line 38, sass/pages/_home.scss */
+.section-book {
   padding: 15rem 0;
-  background-color: #f7f7f7; }
+  background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
+
+/* line 43, sass/pages/_home.scss */
+.booking {
+  max-width: 114rem;
+  margin: 0 auto; }
+
+/* line 51, sass/pages/_home.scss */
+.book {
+  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 49.9%, transparent 50%), url(../img/nat-10.jpg);
+  background-size: 100%;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
+  height: 50rem; }
+  /* line 60, sass/pages/_home.scss */
+  .book__form {
+    width: 50%;
+    padding: 6rem; }

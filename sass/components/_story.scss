@@ -1,6 +1,93 @@
 // Unsure if flexbox is a better choice to layout these or just the margin 0 auto, need to look into it more
-.story {
-    width: 75%;
+// Center containers with margin 0 auto, items inside of the container with flex!
+// I gave stories a height so justify content could use justify-content (didnt have enough space to do so before) Jonas just used margin bottom
+.stories {
+    // positions this container in the center    
+    max-width: $grid-width;
+    height: 63rem;
     margin: 0 auto;
+
+    // positions the story inside in the center
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
+// Could not apply skew by selecting all childs of story because the image was already transformed (-3rem part) and that one took precedence so we just added it in manually
+.story {    
+    width: 75%;
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    background-color: rgba($color-white, .6);
+    border-radius: 3px;
+    padding: 6rem;
+    padding-left: 9rem;
+    font-size: $default-font-size;
+    transform: skewX(-12deg);
+
+    // Jonas's solution instead of flex
+    // &:not(:last-child) {
+    //     margin-bottom: $gutter-vertical;
+    // }
+
+    // shape outside only works when width/height is defined and it's floated
+    // shape outside makes it possible to wrap text around complex objects rather than a simple square box
+    &__shape {
+        position: relative;
+        width: 15rem;
+        height: 15rem;
+        float: left;        
+        shape-outside: circle(50% at 50% 50%);
+        -webkit-shape-outside: circle(50% at 50% 50%);
+
+        clip-path: circle(50% at 50% 50%);
+        -webkit-clip-path: circle(50% at 50% 50%);
+        transform: translateX(-3rem) skewX(12deg);
+
+        // fixes lines appearing on both sides of shape when hovering story
+        overflow: hidden;
+    }
+
+    // For images to be responsive they ALWAYS need to be given a width and or height
+    &__img {
+        height: 100%;
+        transform: translateX(-3.5rem) scale(1.4);
+        transition: all .5s;
+
+        // fixes black sides on the image somehow but ruins image quality?
+        backface-visibility: hidden;
+    }
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        color: $color-white;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+        opacity: 0;
+        transition: all .5s;
+        backface-visibility: hidden;        
+    }
+
+    &__text {
+        transform: skewX(12deg);
+    }
+
+    &__heading {
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    
+    &:hover &__caption {        
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+
+    &:hover &__img {
+        transform: translateX(-3.5rem) scale(1);
+        filter: blur(3px) brightness(80%);
+    }
+}
