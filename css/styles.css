@@ -199,7 +199,7 @@ body {
   .heading-primary--sub {
     font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 1.7rem;
+    letter-spacing: 1.75rem;
     animation: moveInRight 1s ease-out; }
 
 /* line 77, sass/components/_header.scss */
@@ -612,6 +612,195 @@ body {
   display: flex;
   justify-content: space-between;
   width: 85%; }
+
+/* line 4, sass/components/_footer.scss */
+.footer {
+  background-color: #333;
+  padding: 10rem 0;
+  font-size: 1.4rem;
+  color: #fff; }
+  /* line 12, sass/components/_footer.scss */
+  .footer__logo-box {
+    display: flex;
+    justify-content: center; }
+  /* line 17, sass/components/_footer.scss */
+  .footer__logo {
+    width: 15rem;
+    height: auto; }
+  /* line 22, sass/components/_footer.scss */
+  .footer__container {
+    max-width: 114rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; }
+  /* line 29, sass/components/_footer.scss */
+  .footer__navigation-container {
+    display: flex;
+    margin-right: 6rem; }
+  /* line 34, sass/components/_footer.scss */
+  .footer__copyright-container {
+    flex-basis: 36%; }
+  /* line 38, sass/components/_footer.scss */
+  .footer__navigation {
+    border-top: 1px solid #777;
+    padding-top: 2rem;
+    display: inline-block; }
+  /* line 44, sass/components/_footer.scss */
+  .footer__list {
+    display: flex;
+    list-style: none; }
+  /* line 52, sass/components/_footer.scss */
+  .footer__item:not(:last-child) {
+    margin-right: 1.5rem; }
+  /* line 60, sass/components/_footer.scss */
+  .footer__link:link, .footer__link:visited {
+    color: #f7f7f7;
+    background-color: #333;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: all .2s; }
+  /* line 70, sass/components/_footer.scss */
+  .footer__link:hover, .footer__link:active {
+    color: #55c57a;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+    transform: rotate(-5deg) scale(1.15); }
+  /* line 78, sass/components/_footer.scss */
+  .footer__copyright {
+    border-top: 1px solid #777;
+    padding-top: 2rem; }
+
+/* line 6, sass/components/_navigation.scss */
+.navigation__checkbox {
+  display: none; }
+
+/* line 12, sass/components/_navigation.scss */
+.navigation__button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: #fff;
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 6rem;
+  right: 6rem;
+  z-index: 200;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1); }
+
+/* line 35, sass/components/_navigation.scss */
+.navigation__background {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 6.5rem;
+  right: 6.5rem;
+  background-image: radial-gradient(#7ed56f, #28b485);
+  z-index: 100;
+  transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1); }
+
+/* line 50, sass/components/_navigation.scss */
+.navigation__nav {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 150;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-60rem);
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+
+/* line 70, sass/components/_navigation.scss */
+.navigation__list {
+  list-style: none;
+  text-align: center; }
+
+/* line 75, sass/components/_navigation.scss */
+.navigation__item {
+  margin: 1rem; }
+
+/* line 82, sass/components/_navigation.scss */
+.navigation__link:link, .navigation__link:visited {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 3rem;
+  font-weight: 300;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
+  background-size: 220%;
+  transition: all .4s; }
+
+/* line 99, sass/components/_navigation.scss */
+.navigation__link:hover, .navigation__link:active {
+  background-position: 100%;
+  color: #55c57a;
+  transform: translateX(1rem); }
+
+/* line 106, sass/components/_navigation.scss */
+.navigation__link span {
+  margin-right: 1.5rem; }
+
+/* line 114, sass/components/_navigation.scss */
+.navigation__checkbox:checked ~ .navigation__background {
+  transform: scale(80); }
+
+/* line 118, sass/components/_navigation.scss */
+.navigation__checkbox:checked ~ .navigation__nav {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0); }
+
+/* line 125, sass/components/_navigation.scss */
+.navigation__icon {
+  width: 3rem;
+  height: 2px;
+  background-color: #333;
+  display: inline-block;
+  transition: all .2s; }
+  /* line 152, sass/components/_navigation.scss */
+  .navigation__icon:first-child {
+    margin-top: 2px; }
+  /* line 156, sass/components/_navigation.scss */
+  .navigation__icon:not(:last-child) {
+    margin-bottom: 6px; }
+
+/* line 163, sass/components/_navigation.scss */
+.navigation__icon-container {
+  display: flex;
+  flex-direction: column; }
+
+/* line 171, sass/components/_navigation.scss */
+.navigation__button:hover > .navigation__icon-container > .navigation__icon:first-child {
+  transform: translateY(-2px); }
+
+/* line 175, sass/components/_navigation.scss */
+.navigation__button:hover > .navigation__icon-container > .navigation__icon:last-child {
+  transform: translateY(2px); }
+
+/* line 181, sass/components/_navigation.scss */
+.navigation__checkbox:checked + .navigation__button > .navigation__icon-container > .navigation__icon:first-child {
+  transform: rotate(135deg) translateX(2px) translateY(-2px);
+  margin: 0; }
+
+/* line 186, sass/components/_navigation.scss */
+.navigation__checkbox:checked + .navigation__button > .navigation__icon-container > .navigation__icon:nth-child(2) {
+  background-color: transparent;
+  margin: 0; }
+
+/* line 191, sass/components/_navigation.scss */
+.navigation__checkbox:checked + .navigation__button > .navigation__icon-container > .navigation__icon:last-child {
+  transform: rotate(-135deg) translateX(1px) translateY(1px); }
 
 /* line 2, sass/pages/_home.scss */
 .section-about {

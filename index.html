@@ -13,6 +13,31 @@
         <title>Natours | Exciting tours for adventurous people</title>
     </head>
     <body>
+
+        <div class="navigation">
+            <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+
+            <label for="navi-toggle" class="navigation__button">
+                <div class="navigation__icon-container">
+                    <span class="navigation__icon"></span>
+                    <span class="navigation__icon"></span>
+                    <span class="navigation__icon"></span>
+                </div>                
+            </label>
+
+            <div class="navigation__background">&nbsp;</div>
+
+            <nav class="navigation__nav">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><a href="" class="navigation__link"><span>01</span>About Natours</a></li>
+                    <li class="navigation__item"><a href="" class="navigation__link"><span>02</span>Your benefits</a></li>
+                    <li class="navigation__item"><a href="" class="navigation__link"><span>03</span>Popular tours</a></li>
+                    <li class="navigation__item"><a href="" class="navigation__link"><span>04</span>Stories</a></li>
+                    <li class="navigation__item"><a href="" class="navigation__link"><span>05</span>Book now</a></li>
+                </ul>
+            </nav>
+        </div>
+
         <header class="header">
             <div class="header__logo-box">
                 <img src="./img/logo-white.png" alt="Logo" class="header__logo">
@@ -244,8 +269,7 @@
 
             <section class="section-book">
                 <div class="booking">
-                    <div class="book">
-                        
+                    <div class="book">                        
                         <div class="book__form">
                             <form action="#" class="form">
                                 <div class="u-margin-bottom-medium">
@@ -292,9 +316,33 @@
                     </div>
                 </div>                
             </section>
-
-
-        </main>       
+        </main>
+        
+        <footer class="footer">
+            <div class="footer__logo-box u-margin-bottom-big">
+                <img src="img/logo-green-2x.png" alt="Full Logo" class="footer__logo">
+            </div>
+            <div class="footer__container">
+                <div class="footer__navigation-container">
+                    <div class="footer__navigation">
+                        <ul class="footer__list">
+                            <li class="footer__item"><a href="#" class="footer__link">Company</a></li>
+                            <li class="footer__item"><a href="#" class="footer__link">Contact us</a></li>
+                            <li class="footer__item"><a href="#" class="footer__link">Careers</a></li>
+                            <li class="footer__item"><a href="#" class="footer__link">Privacy Policy</a></li>
+                            <li class="footer__item"><a href="#" class="footer__link">Terms</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer__copyright-container">
+                    <p class="footer__copyright">
+                        Built by <a href="#" class="footer__link">Jonas Schmedtmann</a> for his online course <a href="#" class="footer__link">Advanced CSS and Sass</a>.
+                        Copyright &copy; by Jonas Schmedtmann. You are allowed 100% allowed to use this webpage for both personal and commercial use, but NOT to claim it
+                        as your own design. A credit to the original author, Jonas Schmedtmann, is of course highly appreciated!
+                    </p>
+                </div>                
+            </div>           
+        </footer>
 
 
     </body>

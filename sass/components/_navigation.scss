@@ -1,0 +1,196 @@
+// transform-origin is really helpful with the rotate function, you can change the point of origin where the rotation starts
+
+.navigation {
+
+    // HIDDEN INPUT
+    &__checkbox {
+        display: none;
+    }
+
+    // the white button overlaying the green background
+    // the height/width and position values are made to completely cover it
+    &__button {
+
+        // ! My solution for the hamburger icons
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        // !        
+
+        cursor: pointer;
+        background-color: $color-white;
+        height: 7rem;
+        width: 7rem;
+        border-radius: 50%;
+        position: fixed;
+        top: 6rem;
+        right: 6rem;
+        z-index: 200;
+
+        box-shadow: 0 1rem 3rem rgba($color-black, .1);
+    }
+
+    // the green background
+    &__background {
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        position: fixed;
+        top: 6.5rem;
+        right: 6.5rem;
+        background-image: radial-gradient($color-primary-light, $color-primary-dark);
+        z-index: 100;
+
+        transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);   
+    }
+
+    // covers entire viewport and with position fixed it always stays that way even if you scroll
+    // z-index of 150 so the nav is on top of the green background
+    &__nav {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 150;
+        width: 100%;
+
+        visibility: hidden;
+        opacity: 0;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        // cubic bezier is a function that specifies the rate of change over a certain amount of time
+        transform: translateX(-60rem);        
+        transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    &__list {
+        list-style: none;
+        text-align: center;
+    }
+
+    &__item {
+        margin: 1rem;       
+    }
+
+    &__link {
+        // added display inline block so the top and bottom padding are applied
+        // it said it was applied in the computed values but it's not actually visible !
+        &:link,
+        &:visited {            
+            display: inline-block;
+            padding: 1rem 2rem; 
+            font-size: 3rem;
+            font-weight: 300;
+            color: $color-white;
+            text-decoration: none;
+            text-transform: uppercase;
+
+            // 'pushes' the white part to the side by making the background size really big
+            background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+            background-size: 220%;
+            transition: all .4s;
+        }
+
+        // changes the position of the background +
+        &:hover,
+        &:active {
+            background-position: 100%;
+            color: $color-primary;
+            transform: translateX(1rem);            
+        }
+
+        span {
+            // Jonas adds display inline-block but I fail to see the point why
+            // display: inline-block;
+            margin-right: 1.5rem;
+        }        
+    }
+
+    // FUNCTIONALITY
+    &__checkbox:checked ~ &__background {
+        transform: scale(80);
+    }
+
+    &__checkbox:checked ~ &__nav {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(0);   
+    }
+
+    // ICON
+    &__icon {
+        // Jonas's Solution for hamburger icon
+        // &,
+        // &::before,
+        // &::after {
+        //     width: 3rem;
+        //     height: 2px;
+        //     background-color: $color-grey-dark-3;
+        //     // Otherwise they have no height or width applied (I previously only thought top padding and margin didnt apply to them)
+        //     display: inline-block;            
+        // }
+
+        // &::before,
+        // &::after {
+        //     content: "";
+        //     position: absolute;
+        //     left: 0;
+        // }
+
+        // &::before { top: -1rem; }
+        // &::after { top: -1rem; }
+        
+        width: 3rem;
+        height: 2px;
+        background-color: $color-grey-dark-3;
+        display: inline-block;
+
+        &:first-child {
+            margin-top: 2px;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 6px;
+        }
+
+        transition: all .2s;
+    }
+
+    &__icon-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // No need for the arrows but it's easier to read imo
+    &__button:hover > &__icon-container > &__icon {
+        
+        &:first-child {
+            transform: translateY(-2px);
+        }
+
+        &:last-child {
+            transform: translateY(2px);
+        }
+    }
+
+    &__checkbox:checked + &__button > &__icon-container > &__icon {
+        &:first-child {
+            transform: rotate(135deg) translateX(2px) translateY(-2px);
+            margin: 0;
+        }
+
+        &:nth-child(2) {
+            background-color: transparent;
+            margin: 0;
+        }
+
+        &:last-child {
+            transform: rotate(-135deg) translateX(1px) translateY(1px);
+        }
+    }
+
+}
