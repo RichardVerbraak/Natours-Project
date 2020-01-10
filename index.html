@@ -26,14 +26,16 @@
             </label>
 
             <div class="navigation__background">&nbsp;</div>
+            
+            <!-- Added in a function to link to a section of the page, could only be done with ID's sadly-->
 
             <nav class="navigation__nav">
                 <ul class="navigation__list">
-                    <li class="navigation__item"><a href="" class="navigation__link"><span>01</span>About Natours</a></li>
-                    <li class="navigation__item"><a href="" class="navigation__link"><span>02</span>Your benefits</a></li>
-                    <li class="navigation__item"><a href="" class="navigation__link"><span>03</span>Popular tours</a></li>
-                    <li class="navigation__item"><a href="" class="navigation__link"><span>04</span>Stories</a></li>
-                    <li class="navigation__item"><a href="" class="navigation__link"><span>05</span>Book now</a></li>
+                    <li class="navigation__item"><a href="#section-about" class="navigation__link" onclick="closeNav()"><span>01</span>About Natours</a></li>
+                    <li class="navigation__item"><a href="#section-features" class="navigation__link" onclick="closeNav()"><span>02</span>Your benefits</a></li>
+                    <li class="navigation__item"><a href="#section-tours" class="navigation__link" onclick="closeNav()"><span>03</span>Popular tours</a></li>
+                    <li class="navigation__item"><a href="#section-stories" class="navigation__link" onclick="closeNav()"><span>04</span>Stories</a></li>
+                    <li class="navigation__item"><a href="#section-book" class="navigation__link" onclick="closeNav()"><span>05</span>Book now</a></li>
                 </ul>
             </nav>
         </div>
@@ -55,7 +57,7 @@
 
         <main>
 
-            <section class="section-about">
+            <section class="section-about" id="section-about">
                 <div class="u-center-text u-margin-bottom-big">
                     <h2 class="heading-secondary">
                         Exciting tours for adventurous people
@@ -89,7 +91,7 @@
                 </div>
             </section>
 
-            <section class="section-features">
+            <section class="section-features" id="section-features">
                 <div class="features">
                     <div class="features__box">
                         <i class="features__box--icon  icon-basic-world"></i>
@@ -114,7 +116,7 @@
                 </div>                
             </section>
 
-            <section class="section-tours">
+            <section class="section-tours" id="section-tours">
 
                 <div class="u-center-text u-margin-bottom-big">
                     <h2 class="heading-secondary">
@@ -148,7 +150,7 @@
                                     <p class="card__price-value">$297</p>
                                 </div>                                
                             </div>
-                            <a href="#" class="btn btn--white">Book now!</a>
+                            <a href="#popup" class="btn btn--white">Book now!</a>
                         </div>
                     </div>
                     <div class="card">
@@ -176,7 +178,7 @@
                                     <p class="card__price-value">$497</p>
                                 </div>                                
                             </div>
-                            <a href="#" class="btn btn--white">Book now!</a>
+                            <a href="#popup" class="btn btn--white">Book now!</a>
                         </div>
                     </div>
                     <div class="card">
@@ -204,7 +206,7 @@
                                     <p class="card__price-value">$897</p>
                                 </div>                                
                             </div>
-                            <a href="#" class="btn btn--white">Book now!</a>
+                            <a href="#popup" class="btn btn--white">Book now!</a>
                         </div>
                     </div>
                 </div>
@@ -215,7 +217,7 @@
 
             </section>
 
-            <section class="section-stories">
+            <section class="section-stories" id="section-stories">
                 <div class="u-center-text u-margin-bottom-big">
                     <h2 class="heading-secondary">
                         We make people genuinely happy
@@ -267,7 +269,7 @@
 
             </section>
 
-            <section class="section-book">
+            <section class="section-book" id="section-about">
                 <div class="booking">
                     <div class="book">                        
                         <div class="book__form">
@@ -344,6 +346,28 @@
             </div>           
         </footer>
 
+        <div class="popup" id="popup">
+            <div class="popup__content">
+                <div class="popup__images">
+                    <img src="img/nat-8.jpg" alt="Tour Photo" class="popup__img">
+                    <img src="img/nat-9.jpg" alt="Tour Photo" class="popup__img">
+                </div>
+                <div class="popup__text">
+                    <a href="#section-tours" class="popup__close">&times;</a>
+                    <h2 class="heading-secondary u-margin-bottom-small">Start booking now</h2>
+                    <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read these terms before booking</h3>
+                    <p class="popup__paragraph">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus nulla at volutpat diam ut venenatis. Sit amet consectetur adipiscing elit duis tristique sollicitudin nibh. Pellentesque nec nam aliquam sem et tortor consequat. Tortor at risus viverra adipiscing at in. Molestie at elementum eu facilisis sed odio morbi quis. Habitasse platea dictumst quisque sagittis. Pretium nibh ipsum consequat nisl vel pretium lectus quam. Dolor magna eget est lorem ipsum dolor sit. Euismod quis viverra nibh cras pulvinar mattis nunc sed blandit. Orci ac auctor augue mauris augue neque gravida in fermentum. Orci dapibus ultrices in iaculis nunc sed. Turpis egestas integer eget aliquet nibh praesent tristique magna. Eu ultrices vitae auctor eu augue ut lectus arcu bibendum. Sed sed risus pretium quam vulputate dignissim suspendisse. Turpis cursus in hac habitasse platea dictumst quisque sagittis purus. Tellus in metus vulputate eu. Enim blandit volutpat maecenas volutpat blandit. Est ullamcorper eget nulla facilisi etiam dignissim diam quis.
+                    </p>
+                    <a href="#" class="btn btn--green popup__btn">Book now</a>
+                </div>
+            </div>
+        </div>
 
+        <script>
+            const closeNav = () => {
+                document.querySelector('.navigation__checkbox').checked = false;
+            }
+        </script>
     </body>
 </html>
