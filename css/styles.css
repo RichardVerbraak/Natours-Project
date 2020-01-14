@@ -487,39 +487,52 @@ body {
     transition: all .3s;
     z-index: 1;
     outline-offset: 2rem; }
-    /* line 66, sass/components/_about.scss */
+    @media (max-width: 37.5em) {
+      /* line 57, sass/components/_about.scss */
+      .composition__photo {
+        width: 33.33333%; } }
+    /* line 70, sass/components/_about.scss */
     .composition__photo--p1 {
       left: 0;
       top: -2rem; }
       @media (max-width: 56.25em) {
-        /* line 66, sass/components/_about.scss */
+        /* line 70, sass/components/_about.scss */
         .composition__photo--p1 {
           left: -10rem;
           top: 1rem; } }
-    /* line 76, sass/components/_about.scss */
+      @media (max-width: 37.5em) {
+        /* line 70, sass/components/_about.scss */
+        .composition__photo--p1 {
+          left: 2rem; } }
+    /* line 84, sass/components/_about.scss */
     .composition__photo--p2 {
       right: 0;
       top: 2rem; }
       @media (max-width: 56.25em) {
-        /* line 76, sass/components/_about.scss */
+        /* line 84, sass/components/_about.scss */
         .composition__photo--p2 {
           right: -9rem;
           top: 1rem; } }
-    /* line 86, sass/components/_about.scss */
+      @media (max-width: 37.5em) {
+        /* line 84, sass/components/_about.scss */
+        .composition__photo--p2 {
+          right: 8rem; } }
+    /* line 99, sass/components/_about.scss */
     .composition__photo--p3 {
       left: 20%;
       top: 10rem; }
       @media (max-width: 56.25em) {
-        /* line 86, sass/components/_about.scss */
+        /* line 99, sass/components/_about.scss */
         .composition__photo--p3 {
+          left: 25%;
           top: -2rem; } }
-    /* line 95, sass/components/_about.scss */
+    /* line 109, sass/components/_about.scss */
     .composition__photo:hover {
       outline: 1.5rem solid #55c57a;
       transform: scale(1.05) translateY(-0.5rem);
       box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
       z-index: 10; }
-  /* line 109, sass/components/_about.scss */
+  /* line 123, sass/components/_about.scss */
   .composition:hover .composition__photo:not(:hover) {
     transform: scale(0.85); }
 
