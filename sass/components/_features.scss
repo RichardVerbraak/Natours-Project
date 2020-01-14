@@ -1,12 +1,27 @@
+// Changed this from using margin-right and such to just using space-between and flex-basis for the items
+
 .features {
     display: flex;    
-    width: $grid-width;
+    max-width: $grid-width;
     margin: 0 auto;
+    justify-content: space-between;
+
+    @include respond(tab-port) {
+        flex-direction: column;
+        max-width: $grid-width-900;
+    }
+
+    @include respond(phone) {
+        padding: $padding-phone;
+    }
         
 
     &__box {
         display: flex;
         flex-direction: column;
+
+        // 21% looks better with the text
+        flex: 0 0 21%;
 
         background-color: rgba($color: #fff, $alpha: .8);
         font-size: 1.5rem;
@@ -18,7 +33,13 @@
         transition: transform .3s;
 
         &:not(:last-child) {
-            margin-right: 6rem;
+            @include respond(tab-port) {
+                margin-bottom: 6rem;
+            }
+        }
+        
+        @include respond(tab-port) {
+            padding: 2rem;
         }
 
         &--icon {
@@ -28,6 +49,10 @@
             -webkit-background-clip: text;
             background-clip: text;    
             color: transparent;
+
+            @include respond(tab-port) {
+                margin-bottom: 0;
+            }
         }
         // Jonas uses an utility class for tertiary headings (h3) 
         &--heading {

@@ -1,0 +1,113 @@
+// SHOULD STRUCTURE THIS BETTER
+
+// Jonas used other media queries, scaled down the width of the pictures and smaller transform translates
+
+//////////////////////
+// ABOUT BOX
+// content is 1140 px long (grid width var)
+.about__box {
+    display: flex;
+    max-width: $grid-width;
+    margin: 0 auto;
+
+    // Changing this to column fixed a BIG issue with having a lot of white space on the right side of the page, screwing up a lot of the page
+    // such as the white navigation button not being positioned correctly (outside of the page) etc.
+    // This happened also because I didnt use flex-shrink on the composition box which also fixed this whitespace
+    @include respond(tab-port) {
+        flex-direction: column;
+        max-width: $grid-width-900;
+        height: 60rem;
+        padding: $padding-phone;
+    }
+}
+
+//////////////////////
+// TEXT CONTENT
+.text__content {
+    flex: 0 0 50%;
+    margin-right: 6rem;
+
+    @include respond(tab-port) {
+        margin-right: 0;
+        margin-bottom: 8rem;
+    }
+
+    &--heading {
+        font-size: $default-font-size;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    &--sub {
+        font-size: $default-font-size;
+
+        &:not(:last-child) {
+            margin-bottom: 3rem;
+        }        
+    }
+}
+
+.composition {
+    // Shrink or else weird issues when decreasing page size
+    flex: 0 1 50%;
+    position: relative;
+    
+
+    // Always try to define images with % values and also the absolute pos like left: 20% 
+    &__photo {
+        width: 55%;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+        border-radius: 2px;
+        position: absolute;
+        transition: all .3s;
+        z-index: 1;
+        outline-offset: 2rem;
+
+        &--p1 {
+            left: 0;
+            top: -2rem;
+
+            @include respond(tab-port) {
+                left: -10rem;
+                top: 1rem;
+            }
+        }
+
+        &--p2 {
+            right: 0;
+            top: 2rem;
+
+            @include respond(tab-port) {
+                right: -9rem;
+                top: 1rem;
+            }
+        }
+
+        &--p3 {
+            left: 20%;
+            top: 10rem;
+
+            @include respond(tab-port) {
+                top: -2rem;
+            }
+        }
+        
+        &:hover {
+            // !Can also be used instead of outline
+            // border: 1.5rem solid $color-primary;
+            // padding: 2.5rem;
+            // box-sizing: content-box;
+
+            outline: 1.5rem solid $color-primary;
+            transform: scale(1.05) translateY(-.5rem);
+            box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+            z-index: 10;
+        }
+    }
+
+    //composition:hover composition__photo:not(:hover)
+    &:hover &__photo:not(:hover) {
+        transform: scale(.85);
+    }
+
+}

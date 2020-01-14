@@ -1,7 +1,66 @@
+// Mixins are basically variables/functions that you can pass in your code, sometimes you can pass in args back to the mixin as well
+
 @mixin clearfix {
     &::after {
         content: "";
         display: table;
         clear: both;
+    }
+}
+
+
+
+// MEDIA QUERY MANAGER
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet Portrait
+900 - 1200px:   Tablet Landscape
+[1200 - 1800]:  Desktop where our normal styles apply
+1800px + :         Big Desktop
+*/
+
+// @content is the place where you fill in your code when you use @include in your sass files
+// test
+@mixin respond-phone {
+    @media (max-width: 600px) { @content };
+}
+
+/*
+$breakpoint arg choices: 
+-   phone
+-   tab-port
+-   tab-landscape
+-   big-desktop
+
+ORDER: Base + Typography > General Layout + Grid (I used flex instead) > Page Layout > Components
+
+*/
+
+
+
+// 1em = 16px
+
+// max-width (apply these styles till this width)
+// min-width (apply it when the width is a minimum of X px)
+// ems best option for media queries
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) { @content };    // 600px
+    }
+
+    @if $breakpoint == 700bp {
+        @media (max-width: 43.75em) { @content };   // 700px (for the booking form)
+    }
+
+    @if $breakpoint == tab-port {
+        @media (max-width: 56.25em) { @content };   // 900px
+    }
+
+    @if $breakpoint == tab-landscape {
+        @media (max-width: 75em) { @content };      // 1200px
+    }
+
+    @if $breakpoint == big-desktop {
+        @media (min-width: 112.5em) { @content };   // 1800px
     }
 }

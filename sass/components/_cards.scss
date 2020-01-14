@@ -4,21 +4,35 @@
     display: flex;
     max-width: $grid-width;
     margin: 0 auto;
+    justify-content: space-between;
 
-    justify-content: space-between;    
+    @include respond(tab-port) {
+        // I added the height manually instead of auto because the cards couldn't be laid out with space-between, they bunched up together and had no space
+        // they overflowed into the next section as well
+        flex-direction: column;
+        height: 255rem;
+        max-width: $grid-width-900;
+    }
+    
+    @include respond(phone) {
+        padding: $padding-phone;
+    }
 }
 
 .card {
     // Makes the box animation look better by 'moving toward you' | the lower the value the worse it looks 
     perspective: 150rem;
     -moz-perspective: 150rem;
-    flex: 1;
 
     // because the card sides are taken out of the natural flow, the height of the parent element of side (card) collapsed so we just give it 50rem height to fix it
     // 52 rem to give a bit more space below the text
     height: 52rem;
+    flex: 0 0 30%;
+     
 
     position: relative;
+
+    
     
     &__side {
         font-size: 2rem;
@@ -29,6 +43,7 @@
         overflow: hidden;
         box-shadow: 0 1.5rem 4rem rgba($color: $color-black, $alpha: .15);
 
+        // other side of the element
         position: absolute;
         top: 0;
         left: 0;
@@ -70,11 +85,7 @@
 
     &:hover &__side--back {
         transform: rotateY(0);
-    }
-    
-    &:not(:last-child) {
-        margin-right: 6rem;
-    }
+    }   
 
     // FRONT SIDE STYLING
     &__picture {
@@ -187,4 +198,49 @@
         font-size: 6rem;
         font-weight: 100;
     }
+
+    // TAB PORTRAIT MEDIA QUERY !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!@
+    @include respond(tab-port) {
+        height: auto;   
+        border-radius: 3px;
+        background-color: $color-white;
+        box-shadow: 0 1.5rem 4rem rgba($color: $color-black, $alpha: .15);
+        
+        &__side {
+            font-size: 2rem;
+            height: auto;
+            box-shadow: none;
+            
+
+            position: relative;
+
+            
+            &--back {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                transform: rotateY(0);
+                clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+                
+                // this has a manual height as well otherwise it would not use flex properly
+                height: 30rem;                
+            }
+            
+        }       
+
+        &:hover &__side--front {
+            transform: rotateY(0);
+        }
+        
+
+        &__price-only {
+            font-size: 1.4rem;
+            text-transform: uppercase;
+        }
+
+        &__price-value {
+            font-size: 4rem;
+        }
+    }    
 }

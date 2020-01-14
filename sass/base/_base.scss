@@ -11,9 +11,37 @@
 // Defines the 1rem value
 html {
     font-size: 62.5%;
+
+    // @include respond-phone {
+    //     font-size: 50%;
+    // }
+
+    // don't need the phone media query here because the tab-port will apply (also set to 50%)
+    // @include respond(phone) {
+    //     font-size: 50%;
+    // }
+
+    // always the larger sizes before the smaller ones otherwise you'll have conflicting media queries (the last one is min-width so doesnt matter)
+    // before this, the last media query was the larger font-size and because 900 is less than 1200 that one got applied and the other one overridden
+    @include respond(tab-landscape) {
+        font-size: 56.25%;  // 1rem = 9px      width < 1200?
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%;     // 1rem = 8px, 8px/16px = 50%   width < 900?
+    }   
+
+    @include respond(big-desktop) {
+        font-size: 75%;
+    }
 }
 
 
 body {
     box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
 }

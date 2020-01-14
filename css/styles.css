@@ -1,3 +1,20 @@
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet Portrait
+900 - 1200px:   Tablet Landscape
+[1200 - 1800]:  Desktop where our normal styles apply
+1800px + :         Big Desktop
+*/
+/*
+$breakpoint arg choices: 
+-   phone
+-   tab-port
+-   tab-landscape
+-   big-desktop
+
+ORDER: Base + Typography > General Layout + Grid (I used flex instead) > Page Layout > Components
+
+*/
 /* line 2, sass/base/_base.scss */
 *,
 *::after,
@@ -9,10 +26,27 @@
 /* line 12, sass/base/_base.scss */
 html {
   font-size: 62.5%; }
+  @media (max-width: 75em) {
+    /* line 12, sass/base/_base.scss */
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    /* line 12, sass/base/_base.scss */
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    /* line 12, sass/base/_base.scss */
+    html {
+      font-size: 75%; } }
 
-/* line 17, sass/base/_base.scss */
+/* line 40, sass/base/_base.scss */
 body {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  padding: 3rem; }
+  @media (max-width: 56.25em) {
+    /* line 40, sass/base/_base.scss */
+    body {
+      padding: 0; } }
 
 @keyframes moveInLeft {
   0% {
@@ -47,8 +81,7 @@ body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   line-height: 1.7;
-  color: #777;
-  padding: 3rem; }
+  color: #777; }
 
 /* line 3, sass/base/_utilities.scss */
 .u-center-text {
@@ -61,16 +94,24 @@ body {
 /* line 8, sass/base/_utilities.scss */
 .u-margin-bottom-medium {
   margin-bottom: 4rem !important; }
+  @media (max-width: 56.25em) {
+    /* line 8, sass/base/_utilities.scss */
+    .u-margin-bottom-medium {
+      margin-bottom: 3rem !important; } }
 
-/* line 9, sass/base/_utilities.scss */
+/* line 15, sass/base/_utilities.scss */
 .u-margin-bottom-big {
   margin-bottom: 8rem !important; }
+  @media (max-width: 56.25em) {
+    /* line 15, sass/base/_utilities.scss */
+    .u-margin-bottom-big {
+      margin-bottom: 5rem !important; } }
 
-/* line 11, sass/base/_utilities.scss */
+/* line 23, sass/base/_utilities.scss */
 .u-margin-top-big {
   margin-top: 8rem !important; }
 
-/* line 12, sass/base/_utilities.scss */
+/* line 24, sass/base/_utilities.scss */
 .u-margin-top-huge {
   margin-top: 10rem !important; }
 
@@ -176,8 +217,18 @@ body {
   right: 6rem;
   z-index: 200;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1); }
+  @media (max-width: 56.25em) {
+    /* line 12, sass/components/_navigation.scss */
+    .navigation__button {
+      top: 4rem;
+      right: 4rem; } }
+  @media (max-width: 37.5em) {
+    /* line 12, sass/components/_navigation.scss */
+    .navigation__button {
+      top: 3rem;
+      right: 3rem; } }
 
-/* line 35, sass/components/_navigation.scss */
+/* line 45, sass/components/_navigation.scss */
 .navigation__background {
   height: 6rem;
   width: 6rem;
@@ -188,8 +239,18 @@ body {
   background-image: radial-gradient(#7ed56f, #28b485);
   z-index: 100;
   transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1); }
+  @media (max-width: 56.25em) {
+    /* line 45, sass/components/_navigation.scss */
+    .navigation__background {
+      top: 4.5rem;
+      right: 4.5rem; } }
+  @media (max-width: 37.5em) {
+    /* line 45, sass/components/_navigation.scss */
+    .navigation__background {
+      top: 3.5rem;
+      right: 3.5rem; } }
 
-/* line 50, sass/components/_navigation.scss */
+/* line 70, sass/components/_navigation.scss */
 .navigation__nav {
   height: 100vh;
   position: fixed;
@@ -205,16 +266,16 @@ body {
   transform: translateX(-60rem);
   transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
 
-/* line 70, sass/components/_navigation.scss */
+/* line 90, sass/components/_navigation.scss */
 .navigation__list {
   list-style: none;
   text-align: center; }
 
-/* line 75, sass/components/_navigation.scss */
+/* line 95, sass/components/_navigation.scss */
 .navigation__item {
   margin: 1rem; }
 
-/* line 82, sass/components/_navigation.scss */
+/* line 102, sass/components/_navigation.scss */
 .navigation__link:link, .navigation__link:visited {
   display: inline-block;
   padding: 1rem 2rem;
@@ -227,64 +288,64 @@ body {
   background-size: 220%;
   transition: all .4s; }
 
-/* line 99, sass/components/_navigation.scss */
+/* line 119, sass/components/_navigation.scss */
 .navigation__link:hover, .navigation__link:active {
   background-position: 100%;
   color: #55c57a;
   transform: translateX(1rem); }
 
-/* line 106, sass/components/_navigation.scss */
+/* line 126, sass/components/_navigation.scss */
 .navigation__link span {
   margin-right: 1.5rem; }
 
-/* line 114, sass/components/_navigation.scss */
+/* line 134, sass/components/_navigation.scss */
 .navigation__checkbox:checked ~ .navigation__background {
   transform: scale(80); }
 
-/* line 118, sass/components/_navigation.scss */
+/* line 138, sass/components/_navigation.scss */
 .navigation__checkbox:checked ~ .navigation__nav {
   visibility: visible;
   opacity: 1;
   transform: translateX(0); }
 
-/* line 125, sass/components/_navigation.scss */
+/* line 145, sass/components/_navigation.scss */
 .navigation__icon {
   width: 3rem;
   height: 2px;
   background-color: #333;
   display: inline-block;
   transition: all .2s; }
-  /* line 152, sass/components/_navigation.scss */
+  /* line 173, sass/components/_navigation.scss */
   .navigation__icon:first-child {
     margin-top: 2px; }
-  /* line 156, sass/components/_navigation.scss */
+  /* line 177, sass/components/_navigation.scss */
   .navigation__icon:not(:last-child) {
     margin-bottom: 6px; }
 
-/* line 163, sass/components/_navigation.scss */
+/* line 184, sass/components/_navigation.scss */
 .navigation__icon-container {
   display: flex;
   flex-direction: column; }
 
-/* line 171, sass/components/_navigation.scss */
+/* line 194, sass/components/_navigation.scss */
 .navigation__button:hover > .navigation__icon-container > .navigation__icon:first-child {
   transform: translateY(-2px); }
 
-/* line 175, sass/components/_navigation.scss */
+/* line 198, sass/components/_navigation.scss */
 .navigation__button:hover > .navigation__icon-container > .navigation__icon:last-child {
   transform: translateY(2px); }
 
-/* line 181, sass/components/_navigation.scss */
+/* line 204, sass/components/_navigation.scss */
 .navigation__checkbox:checked + .navigation__button > .navigation__icon-container > .navigation__icon:first-child {
   transform: rotate(135deg) translateX(2px) translateY(-2px);
   margin: 0; }
 
-/* line 186, sass/components/_navigation.scss */
+/* line 209, sass/components/_navigation.scss */
 .navigation__checkbox:checked + .navigation__button > .navigation__icon-container > .navigation__icon:nth-child(2) {
   background-color: transparent;
   margin: 0; }
 
-/* line 191, sass/components/_navigation.scss */
+/* line 214, sass/components/_navigation.scss */
 .navigation__checkbox:checked + .navigation__button > .navigation__icon-container > .navigation__icon:last-child {
   transform: rotate(-135deg) translateX(1px) translateY(1px); }
 
@@ -295,17 +356,22 @@ body {
   background-size: cover;
   background-position: top;
   position: relative;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-  /* line 20, sass/components/_header.scss */
+  @media (max-width: 37.5em) {
+    /* line 6, sass/components/_header.scss */
+    .header {
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%); } }
+  /* line 25, sass/components/_header.scss */
   .header__logo-box {
     position: absolute;
     top: 4rem;
     left: 4rem; }
-  /* line 27, sass/components/_header.scss */
+  /* line 32, sass/components/_header.scss */
   .header__logo {
     height: 3.5rem; }
-  /* line 34, sass/components/_header.scss */
+  /* line 39, sass/components/_header.scss */
   .header__text-box {
     position: absolute;
     top: 40%;
@@ -313,7 +379,7 @@ body {
     transform: translate(-50%, -50%);
     text-align: center; }
 
-/* line 46, sass/components/_header.scss */
+/* line 51, sass/components/_header.scss */
 .heading-primary {
   display: flex;
   flex-direction: column;
@@ -321,20 +387,29 @@ body {
   text-transform: uppercase;
   margin-bottom: 60px;
   backface-visibility: hidden; }
-  /* line 55, sass/components/_header.scss */
+  /* line 61, sass/components/_header.scss */
   .heading-primary--main {
     font-size: 6rem;
     font-weight: 400;
     letter-spacing: 3.5rem;
     animation: moveInLeft 1s ease-out; }
-  /* line 68, sass/components/_header.scss */
+    @media (max-width: 37.5em) {
+      /* line 61, sass/components/_header.scss */
+      .heading-primary--main {
+        letter-spacing: 1rem;
+        font-size: 5rem; } }
+  /* line 79, sass/components/_header.scss */
   .heading-primary--sub {
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: 1.75rem;
     animation: moveInRight 1s ease-out; }
+    @media (max-width: 37.5em) {
+      /* line 79, sass/components/_header.scss */
+      .heading-primary--sub {
+        letter-spacing: .5rem; } }
 
-/* line 77, sass/components/_header.scss */
+/* line 92, sass/components/_header.scss */
 .heading-secondary {
   font-size: 3.5rem;
   text-transform: uppercase;
@@ -346,44 +421,64 @@ body {
   color: transparent;
   letter-spacing: .2rem;
   transition: all 1s; }
-  /* line 91, sass/components/_header.scss */
+  /* line 106, sass/components/_header.scss */
   .heading-secondary:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1);
     text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
+  @media (max-width: 56.25em) {
+    /* line 92, sass/components/_header.scss */
+    .heading-secondary {
+      font-size: 3rem; } }
+  @media (max-width: 37.5em) {
+    /* line 92, sass/components/_header.scss */
+    .heading-secondary {
+      font-size: 2.5rem; } }
 
-/* line 97, sass/components/_header.scss */
+/* line 120, sass/components/_header.scss */
 .heading-tertiary {
   font-size: 1.6rem;
   font-weight: 700;
   text-transform: uppercase; }
 
-/* line 106, sass/components/_header.scss */
+/* line 8, sass/components/_about.scss */
 .about__box {
   display: flex;
-  width: 114rem;
+  max-width: 114rem;
   margin: 0 auto; }
+  @media (max-width: 56.25em) {
+    /* line 8, sass/components/_about.scss */
+    .about__box {
+      flex-direction: column;
+      max-width: 50rem;
+      height: 60rem;
+      padding: 0 3rem; } }
 
-/* line 114, sass/components/_header.scss */
+/* line 26, sass/components/_about.scss */
 .text__content {
   flex: 0 0 50%;
   margin-right: 6rem; }
-  /* line 118, sass/components/_header.scss */
+  @media (max-width: 56.25em) {
+    /* line 26, sass/components/_about.scss */
+    .text__content {
+      margin-right: 0;
+      margin-bottom: 8rem; } }
+  /* line 35, sass/components/_about.scss */
   .text__content--heading {
     font-size: 1.6rem;
     font-weight: 700;
     text-transform: uppercase; }
-  /* line 124, sass/components/_header.scss */
+  /* line 41, sass/components/_about.scss */
   .text__content--sub {
     font-size: 1.6rem; }
-    /* line 127, sass/components/_header.scss */
+    /* line 44, sass/components/_about.scss */
     .text__content--sub:not(:last-child) {
       margin-bottom: 3rem; }
 
-/* line 1, sass/components/_composition.scss */
+/* line 50, sass/components/_about.scss */
 .composition {
-  flex: 0 0 50%;
+  flex: 0 1 50%;
   position: relative; }
-  /* line 7, sass/components/_composition.scss */
+  /* line 57, sass/components/_about.scss */
   .composition__photo {
     width: 55%;
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
@@ -392,37 +487,62 @@ body {
     transition: all .3s;
     z-index: 1;
     outline-offset: 2rem; }
-    /* line 16, sass/components/_composition.scss */
+    /* line 66, sass/components/_about.scss */
     .composition__photo--p1 {
       left: 0;
       top: -2rem; }
-    /* line 21, sass/components/_composition.scss */
+      @media (max-width: 56.25em) {
+        /* line 66, sass/components/_about.scss */
+        .composition__photo--p1 {
+          left: -10rem;
+          top: 1rem; } }
+    /* line 76, sass/components/_about.scss */
     .composition__photo--p2 {
       right: 0;
       top: 2rem; }
-    /* line 26, sass/components/_composition.scss */
+      @media (max-width: 56.25em) {
+        /* line 76, sass/components/_about.scss */
+        .composition__photo--p2 {
+          right: -9rem;
+          top: 1rem; } }
+    /* line 86, sass/components/_about.scss */
     .composition__photo--p3 {
       left: 20%;
       top: 10rem; }
-    /* line 31, sass/components/_composition.scss */
+      @media (max-width: 56.25em) {
+        /* line 86, sass/components/_about.scss */
+        .composition__photo--p3 {
+          top: -2rem; } }
+    /* line 95, sass/components/_about.scss */
     .composition__photo:hover {
       outline: 1.5rem solid #55c57a;
       transform: scale(1.05) translateY(-0.5rem);
       box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
       z-index: 10; }
-  /* line 45, sass/components/_composition.scss */
+  /* line 109, sass/components/_about.scss */
   .composition:hover .composition__photo:not(:hover) {
     transform: scale(0.85); }
 
-/* line 1, sass/components/_features.scss */
+/* line 3, sass/components/_features.scss */
 .features {
   display: flex;
-  width: 114rem;
-  margin: 0 auto; }
-  /* line 7, sass/components/_features.scss */
+  max-width: 114rem;
+  margin: 0 auto;
+  justify-content: space-between; }
+  @media (max-width: 56.25em) {
+    /* line 3, sass/components/_features.scss */
+    .features {
+      flex-direction: column;
+      max-width: 50rem; } }
+  @media (max-width: 37.5em) {
+    /* line 3, sass/components/_features.scss */
+    .features {
+      padding: 0 3rem; } }
+  /* line 19, sass/components/_features.scss */
   .features__box {
     display: flex;
     flex-direction: column;
+    flex: 0 0 21%;
     background-color: rgba(255, 255, 255, 0.8);
     font-size: 1.5rem;
     padding: 2.5rem;
@@ -430,10 +550,15 @@ body {
     border-radius: 3px;
     box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
     transition: transform .3s; }
-    /* line 20, sass/components/_features.scss */
-    .features__box:not(:last-child) {
-      margin-right: 6rem; }
-    /* line 24, sass/components/_features.scss */
+    @media (max-width: 56.25em) {
+      /* line 35, sass/components/_features.scss */
+      .features__box:not(:last-child) {
+        margin-bottom: 6rem; } }
+    @media (max-width: 56.25em) {
+      /* line 19, sass/components/_features.scss */
+      .features__box {
+        padding: 2rem; } }
+    /* line 45, sass/components/_features.scss */
     .features__box--icon {
       font-size: 6rem;
       margin-bottom: .5rem;
@@ -441,12 +566,16 @@ body {
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent; }
-    /* line 33, sass/components/_features.scss */
+      @media (max-width: 56.25em) {
+        /* line 45, sass/components/_features.scss */
+        .features__box--icon {
+          margin-bottom: 0; } }
+    /* line 58, sass/components/_features.scss */
     .features__box--heading {
       font-size: 1.6rem;
       font-weight: 700;
       text-transform: uppercase; }
-    /* line 39, sass/components/_features.scss */
+    /* line 64, sass/components/_features.scss */
     .features__box:hover {
       transform: translateY(-1rem) scale(1.03); }
 
@@ -456,15 +585,25 @@ body {
   max-width: 114rem;
   margin: 0 auto;
   justify-content: space-between; }
+  @media (max-width: 56.25em) {
+    /* line 3, sass/components/_cards.scss */
+    .cards {
+      flex-direction: column;
+      height: 255rem;
+      max-width: 50rem; } }
+  @media (max-width: 37.5em) {
+    /* line 3, sass/components/_cards.scss */
+    .cards {
+      padding: 0 3rem; } }
 
-/* line 11, sass/components/_cards.scss */
+/* line 22, sass/components/_cards.scss */
 .card {
   perspective: 150rem;
   -moz-perspective: 150rem;
-  flex: 1;
   height: 52rem;
+  flex: 0 0 30%;
   position: relative; }
-  /* line 23, sass/components/_cards.scss */
+  /* line 37, sass/components/_cards.scss */
   .card__side {
     font-size: 2rem;
     height: 52rem;
@@ -477,51 +616,48 @@ body {
     left: 0;
     width: 100%;
     backface-visibility: hidden; }
-    /* line 40, sass/components/_cards.scss */
+    /* line 55, sass/components/_cards.scss */
     .card__side--front {
       background-color: #fff; }
-    /* line 45, sass/components/_cards.scss */
+    /* line 60, sass/components/_cards.scss */
     .card__side--back {
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
       transform: rotateY(180deg); }
-      /* line 52, sass/components/_cards.scss */
+      /* line 67, sass/components/_cards.scss */
       .card__side--back-1 {
         background-image: linear-gradient(to right bottom, #ffb900, #ff7730); }
-      /* line 56, sass/components/_cards.scss */
+      /* line 71, sass/components/_cards.scss */
       .card__side--back-2 {
         background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
-      /* line 60, sass/components/_cards.scss */
+      /* line 75, sass/components/_cards.scss */
       .card__side--back-3 {
         background-image: linear-gradient(to right bottom, #2998ff, #5643fa); }
-  /* line 67, sass/components/_cards.scss */
+  /* line 82, sass/components/_cards.scss */
   .card:hover .card__side--front {
     transform: rotateY(-180deg); }
-  /* line 71, sass/components/_cards.scss */
+  /* line 86, sass/components/_cards.scss */
   .card:hover .card__side--back {
     transform: rotateY(0); }
-  /* line 75, sass/components/_cards.scss */
-  .card:not(:last-child) {
-    margin-right: 6rem; }
-  /* line 80, sass/components/_cards.scss */
+  /* line 91, sass/components/_cards.scss */
   .card__picture {
     background-size: cover;
     height: 23rem;
     background-blend-mode: screen;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
-    /* line 89, sass/components/_cards.scss */
+    /* line 100, sass/components/_cards.scss */
     .card__picture--1 {
       background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url(../img/nat-5.jpg); }
-    /* line 94, sass/components/_cards.scss */
+    /* line 105, sass/components/_cards.scss */
     .card__picture--2 {
       background-image: linear-gradient(to right bottom, #7ed56f, #28b485), url(../img/nat-6.jpg); }
-    /* line 99, sass/components/_cards.scss */
+    /* line 110, sass/components/_cards.scss */
     .card__picture--3 {
       background-image: linear-gradient(to right bottom, #2998ff, #5643fa), url(../img/nat-7.jpg); }
-  /* line 105, sass/components/_cards.scss */
+  /* line 116, sass/components/_cards.scss */
   .card__heading {
     font-size: 2.8rem;
     font-weight: 300;
@@ -532,51 +668,83 @@ body {
     top: 12rem;
     right: 2rem;
     width: 75%; }
-  /* line 118, sass/components/_cards.scss */
+  /* line 129, sass/components/_cards.scss */
   .card__heading-span {
     padding: 1rem 1.5rem;
     -webkit-box-decoration-break: clone; }
-    /* line 123, sass/components/_cards.scss */
+    /* line 134, sass/components/_cards.scss */
     .card__heading-span--1 {
       background-image: linear-gradient(to right bottom, rgba(255, 185, 0, 0.85), rgba(255, 119, 48, 0.85)); }
-    /* line 129, sass/components/_cards.scss */
+    /* line 140, sass/components/_cards.scss */
     .card__heading-span--2 {
       background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.85), rgba(40, 180, 133, 0.85)); }
-    /* line 135, sass/components/_cards.scss */
+    /* line 146, sass/components/_cards.scss */
     .card__heading-span--3 {
       background-image: linear-gradient(to right bottom, rgba(41, 152, 255, 0.85), rgba(86, 67, 250, 0.85)); }
-  /* line 142, sass/components/_cards.scss */
+  /* line 153, sass/components/_cards.scss */
   .card__details {
     padding: 3rem; }
-    /* line 145, sass/components/_cards.scss */
+    /* line 156, sass/components/_cards.scss */
     .card__details ul {
       list-style: none;
       width: 80%;
       margin: 0 auto; }
-      /* line 150, sass/components/_cards.scss */
+      /* line 161, sass/components/_cards.scss */
       .card__details ul li {
         text-align: center;
         font-size: 1.5rem;
         padding: 1rem; }
-        /* line 155, sass/components/_cards.scss */
+        /* line 166, sass/components/_cards.scss */
         .card__details ul li:not(:last-child) {
           border-bottom: 1px solid #eee; }
-  /* line 173, sass/components/_cards.scss */
+  /* line 184, sass/components/_cards.scss */
   .card__price-box {
     display: flex;
     flex-direction: column;
     align-items: center;
     color: #fff; }
-  /* line 181, sass/components/_cards.scss */
+  /* line 192, sass/components/_cards.scss */
   .card__price-only {
     font-size: 1.4rem;
     text-transform: uppercase; }
-  /* line 186, sass/components/_cards.scss */
+  /* line 197, sass/components/_cards.scss */
   .card__price-value {
     font-size: 6rem;
     font-weight: 100; }
+  @media (max-width: 56.25em) {
+    /* line 22, sass/components/_cards.scss */
+    .card {
+      height: auto;
+      border-radius: 3px;
+      background-color: #fff;
+      box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
+      /* line 209, sass/components/_cards.scss */
+      .card__side {
+        font-size: 2rem;
+        height: auto;
+        box-shadow: none;
+        position: relative; }
+        /* line 218, sass/components/_cards.scss */
+        .card__side--back {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          align-items: center;
+          transform: rotateY(0);
+          clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+          height: 30rem; }
+      /* line 232, sass/components/_cards.scss */
+      .card:hover .card__side--front {
+        transform: rotateY(0); }
+      /* line 237, sass/components/_cards.scss */
+      .card__price-only {
+        font-size: 1.4rem;
+        text-transform: uppercase; }
+      /* line 242, sass/components/_cards.scss */
+      .card__price-value {
+        font-size: 4rem; } }
 
-/* line 4, sass/components/_story.scss */
+/* line 3, sass/components/_story.scss */
 .stories {
   max-width: 114rem;
   height: 63rem;
@@ -585,8 +753,17 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between; }
+  @media (max-width: 56.25em) {
+    /* line 3, sass/components/_story.scss */
+    .stories {
+      height: 90rem;
+      max-width: 50rem; } }
+  @media (max-width: 37.5em) {
+    /* line 3, sass/components/_story.scss */
+    .stories {
+      height: 80rem; } }
 
-/* line 18, sass/components/_story.scss */
+/* line 29, sass/components/_story.scss */
 .story {
   width: 75%;
   box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
@@ -596,7 +773,17 @@ body {
   padding-left: 9rem;
   font-size: 1.6rem;
   transform: skewX(-12deg); }
-  /* line 35, sass/components/_story.scss */
+  @media (max-width: 56.25em) {
+    /* line 29, sass/components/_story.scss */
+    .story {
+      width: 100%; } }
+  @media (max-width: 37.5em) {
+    /* line 29, sass/components/_story.scss */
+    .story {
+      padding: 4rem;
+      padding-left: 7rem;
+      transform: skewX(0); } }
+  /* line 57, sass/components/_story.scss */
   .story__shape {
     position: relative;
     width: 15rem;
@@ -608,13 +795,17 @@ body {
     -webkit-clip-path: circle(50% at 50% 50%);
     transform: translateX(-3rem) skewX(12deg);
     overflow: hidden; }
-  /* line 52, sass/components/_story.scss */
+    @media (max-width: 37.5em) {
+      /* line 57, sass/components/_story.scss */
+      .story__shape {
+        transform: translateX(-3rem) skewX(0); } }
+  /* line 79, sass/components/_story.scss */
   .story__img {
     height: 100%;
     transform: translateX(-3.5rem) scale(1.4);
     transition: all .5s;
     backface-visibility: hidden; }
-  /* line 61, sass/components/_story.scss */
+  /* line 88, sass/components/_story.scss */
   .story__caption {
     position: absolute;
     top: 50%;
@@ -627,18 +818,22 @@ body {
     opacity: 0;
     transition: all .5s;
     backface-visibility: hidden; }
-  /* line 75, sass/components/_story.scss */
+  /* line 102, sass/components/_story.scss */
   .story__text {
     transform: skewX(12deg); }
-  /* line 79, sass/components/_story.scss */
+    @media (max-width: 37.5em) {
+      /* line 102, sass/components/_story.scss */
+      .story__text {
+        transform: skewX(0); } }
+  /* line 110, sass/components/_story.scss */
   .story__heading {
     font-weight: 700;
     text-transform: uppercase; }
-  /* line 84, sass/components/_story.scss */
+  /* line 115, sass/components/_story.scss */
   .story:hover .story__caption {
     transform: translate(-50%, -50%);
     opacity: 1; }
-  /* line 89, sass/components/_story.scss */
+  /* line 120, sass/components/_story.scss */
   .story:hover .story__img {
     transform: translateX(-3.5rem) scale(1);
     filter: blur(3px) brightness(80%); }
@@ -751,46 +946,72 @@ body {
   justify-content: space-between;
   width: 85%; }
 
-/* line 4, sass/components/_footer.scss */
+/* line 7, sass/components/_footer.scss */
 .footer {
   background-color: #333;
   padding: 10rem 0;
   font-size: 1.4rem;
   color: #fff; }
-  /* line 12, sass/components/_footer.scss */
+  @media (max-width: 56.25em) {
+    /* line 7, sass/components/_footer.scss */
+    .footer {
+      padding: 8rem 0; } }
+  /* line 19, sass/components/_footer.scss */
   .footer__logo-box {
     display: flex;
-    justify-content: center; }
-  /* line 17, sass/components/_footer.scss */
+    justify-content: center;
+    margin-bottom: 8rem; }
+    @media (max-width: 56.25em) {
+      /* line 19, sass/components/_footer.scss */
+      .footer__logo-box {
+        margin-bottom: 6rem; } }
+  /* line 29, sass/components/_footer.scss */
   .footer__logo {
     width: 15rem;
     height: auto; }
-  /* line 22, sass/components/_footer.scss */
+  /* line 34, sass/components/_footer.scss */
   .footer__container {
     max-width: 114rem;
     margin: 0 auto;
     display: flex;
     justify-content: space-between; }
-  /* line 29, sass/components/_footer.scss */
+    @media (max-width: 56.25em) {
+      /* line 34, sass/components/_footer.scss */
+      .footer__container {
+        max-width: 50rem;
+        flex-direction: column; } }
+    @media (max-width: 37.5em) {
+      /* line 34, sass/components/_footer.scss */
+      .footer__container {
+        padding: 0 3rem; } }
+  /* line 50, sass/components/_footer.scss */
   .footer__navigation-container {
-    display: flex;
-    margin-right: 6rem; }
-  /* line 34, sass/components/_footer.scss */
+    flex-basis: 40%; }
+    @media (max-width: 56.25em) {
+      /* line 50, sass/components/_footer.scss */
+      .footer__navigation-container {
+        margin-bottom: 4rem; } }
+  /* line 58, sass/components/_footer.scss */
   .footer__copyright-container {
-    flex-basis: 36%; }
-  /* line 38, sass/components/_footer.scss */
+    flex-basis: 40%; }
+    @media (max-width: 56.25em) {
+      /* line 58, sass/components/_footer.scss */
+      .footer__copyright-container {
+        text-align: center; } }
+  /* line 66, sass/components/_footer.scss */
   .footer__navigation {
     border-top: 1px solid #777;
-    padding-top: 2rem;
-    display: inline-block; }
-  /* line 44, sass/components/_footer.scss */
+    padding-top: 2rem; }
+  /* line 71, sass/components/_footer.scss */
   .footer__list {
     display: flex;
+    justify-content: space-between;
     list-style: none; }
-  /* line 52, sass/components/_footer.scss */
-  .footer__item:not(:last-child) {
-    margin-right: 1.5rem; }
-  /* line 60, sass/components/_footer.scss */
+    @media (max-width: 56.25em) {
+      /* line 71, sass/components/_footer.scss */
+      .footer__list {
+        justify-content: space-between; } }
+  /* line 88, sass/components/_footer.scss */
   .footer__link:link, .footer__link:visited {
     color: #f7f7f7;
     background-color: #333;
@@ -798,12 +1019,12 @@ body {
     text-transform: uppercase;
     display: inline-block;
     transition: all .2s; }
-  /* line 70, sass/components/_footer.scss */
+  /* line 98, sass/components/_footer.scss */
   .footer__link:hover, .footer__link:active {
     color: #55c57a;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
     transform: rotate(-5deg) scale(1.15); }
-  /* line 78, sass/components/_footer.scss */
+  /* line 106, sass/components/_footer.scss */
   .footer__copyright {
     border-top: 1px solid #777;
     padding-top: 2rem; }
@@ -893,46 +1114,83 @@ body {
   background-color: #f7f7f7;
   padding: 25rem 0;
   margin-top: -20vh; }
+  @media (max-width: 56.25em) {
+    /* line 2, sass/pages/_home.scss */
+    .section-about {
+      padding: 20rem 0; } }
 
-/* line 11, sass/pages/_home.scss */
+/* line 15, sass/pages/_home.scss */
 .section-features {
   padding: 20rem 0;
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/nat-4.jpg");
   background-size: cover;
   transform: skewY(-7deg);
   margin-top: -12rem; }
-  /* line 22, sass/pages/_home.scss */
+  /* line 26, sass/pages/_home.scss */
   .section-features > * {
     transform: skewY(7deg); }
+  @media (max-width: 56.25em) {
+    /* line 15, sass/pages/_home.scss */
+    .section-features {
+      padding: 10rem 0; } }
 
-/* line 27, sass/pages/_home.scss */
+/* line 35, sass/pages/_home.scss */
 .section-tours {
   background-color: #f7f7f7;
   padding: 25rem 0 15rem 0;
   margin-top: -11rem; }
+  @media (max-width: 56.25em) {
+    /* line 35, sass/pages/_home.scss */
+    .section-tours {
+      padding: 25rem 0 10rem 0; } }
 
-/* line 33, sass/pages/_home.scss */
+/* line 45, sass/pages/_home.scss */
 .section-stories {
   position: relative;
   padding: 15rem 0; }
+  @media (max-width: 56.25em) {
+    /* line 45, sass/pages/_home.scss */
+    .section-stories {
+      padding: 10rem 0; } }
 
-/* line 38, sass/pages/_home.scss */
+/* line 54, sass/pages/_home.scss */
 .section-book {
   padding: 15rem 0;
   background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
+  @media (max-width: 56.25em) {
+    /* line 54, sass/pages/_home.scss */
+    .section-book {
+      padding: 10rem 0; } }
 
-/* line 43, sass/pages/_home.scss */
+/* line 63, sass/pages/_home.scss */
 .booking {
   max-width: 114rem;
   margin: 0 auto; }
 
-/* line 51, sass/pages/_home.scss */
+/* line 71, sass/pages/_home.scss */
 .book {
   background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 49.9%, transparent 50%), url(../img/nat-10.jpg);
-  background-size: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2); }
-  /* line 57, sass/pages/_home.scss */
+  @media (max-width: 43.75em) {
+    /* line 71, sass/pages/_home.scss */
+    .book {
+      background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 60%, transparent 60%), url(../img/nat-10.jpg); } }
+  @media (max-width: 37.5em) {
+    /* line 71, sass/pages/_home.scss */
+    .book {
+      background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 70%, transparent 70%), url(../img/nat-10.jpg); } }
+  /* line 86, sass/pages/_home.scss */
   .book__form {
     width: 50%;
     padding: 6rem; }
+    @media (max-width: 43.75em) {
+      /* line 86, sass/pages/_home.scss */
+      .book__form {
+        width: 60%; } }
+    @media (max-width: 37.5em) {
+      /* line 86, sass/pages/_home.scss */
+      .book__form {
+        width: 70%; } }
