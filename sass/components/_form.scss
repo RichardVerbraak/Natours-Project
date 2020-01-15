@@ -111,6 +111,7 @@
     width: 85%;
 
     @include respond(500bp) {
-        width: 100%;
+        flex-direction: column;
+        height: 8rem;
     }
 }

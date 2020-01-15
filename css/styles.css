@@ -962,7 +962,8 @@ body {
   @media (max-width: 31.25em) {
     /* line 108, sass/components/_form.scss */
     .radio-container {
-      width: 100%; } }
+      flex-direction: column;
+      height: 8rem; } }
 
 /* line 7, sass/components/_footer.scss */
 .footer {
