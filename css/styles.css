@@ -962,7 +962,7 @@ body {
   @media (max-width: 31.25em) {
     /* line 108, sass/components/_form.scss */
     .radio-container {
-      width: 90%; } }
+      width: 100%; } }
 
 /* line 7, sass/components/_footer.scss */
 .footer {
@@ -1187,9 +1187,10 @@ body {
   @media (max-width: 31.25em) {
     /* line 63, sass/pages/_home.scss */
     .booking {
-      max-width: 50rem; } }
+      max-width: 50rem;
+      padding: 0 3rem; } }
 
-/* line 75, sass/pages/_home.scss */
+/* line 76, sass/pages/_home.scss */
 .book {
   background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 49.9%, transparent 50%), url(../img/nat-10.jpg);
   background-size: cover;
@@ -1197,31 +1198,31 @@ body {
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2); }
   @media (max-width: 43.75em) {
-    /* line 75, sass/pages/_home.scss */
+    /* line 76, sass/pages/_home.scss */
     .book {
       background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 60%, transparent 60%), url(../img/nat-10.jpg); } }
   @media (max-width: 37.5em) {
-    /* line 75, sass/pages/_home.scss */
+    /* line 76, sass/pages/_home.scss */
     .book {
       background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 70%, transparent 70%), url(../img/nat-10.jpg); } }
   @media (max-width: 31.25em) {
-    /* line 75, sass/pages/_home.scss */
+    /* line 76, sass/pages/_home.scss */
     .book {
       background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), url(../img/nat-10.jpg); } }
-  /* line 94, sass/pages/_home.scss */
+  /* line 95, sass/pages/_home.scss */
   .book__form {
     width: 50%;
     padding: 6rem; }
     @media (max-width: 43.75em) {
-      /* line 94, sass/pages/_home.scss */
+      /* line 95, sass/pages/_home.scss */
       .book__form {
         width: 60%; } }
     @media (max-width: 37.5em) {
-      /* line 94, sass/pages/_home.scss */
+      /* line 95, sass/pages/_home.scss */
       .book__form {
         width: 70%; } }
     @media (max-width: 31.25em) {
-      /* line 94, sass/pages/_home.scss */
+      /* line 95, sass/pages/_home.scss */
       .book__form {
         width: 100%;
         padding: 5rem; } }
