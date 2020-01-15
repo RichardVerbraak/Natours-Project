@@ -66,6 +66,7 @@
 
     @include respond(500bp) {
         max-width: 50rem;
+        padding: 0 3rem;
     }
 }
 
