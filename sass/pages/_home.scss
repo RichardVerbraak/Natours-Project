@@ -63,6 +63,10 @@
 .booking {
     max-width: $grid-width;
     margin: 0 auto;
+
+    @include respond(500bp) {
+        max-width: 50rem;
+    }
 }
 
 // setting size to 100% is the similiar as setting it to 'cover' but it's only for covering the entire X direction (the width) and not the height
@@ -83,6 +87,10 @@
         background-image: linear-gradient(105deg, rgba($color-white, .9) 0%, rgba($color-white, .9) 70%, transparent 70%) ,url(../img/nat-10.jpg);
     }
 
+    @include respond(500bp) {
+        background-image: linear-gradient(to right, rgba($color-white, .9) 0%, rgba($color-white, .9) 100%) ,url(../img/nat-10.jpg);
+    }
+
     &__form {
         width: 50%;
         padding: 6rem;
@@ -94,5 +102,11 @@
         @include respond(phone) {
             width: 70%;
         }
+
+        @include respond(500bp) {
+            width: 100%;
+            padding: 5rem;
+        }
+        
     }
 }

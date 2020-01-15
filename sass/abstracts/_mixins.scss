@@ -44,6 +44,10 @@ ORDER: Base + Typography > General Layout + Grid (I used flex instead) > Page La
 // min-width (apply it when the width is a minimum of X px)
 // ems best option for media queries
 @mixin respond($breakpoint) {
+    @if $breakpoint == 500bp {
+        @media (max-width: 31.25em) { @content };
+    }
+
     @if $breakpoint == phone {
         @media (max-width: 37.5em) { @content };    // 600px
     }

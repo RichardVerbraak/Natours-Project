@@ -109,4 +109,8 @@
     display: flex;
     justify-content: space-between;
     width: 85%;
+
+    @include respond(500bp) {
+        width: 90%;
+    }
 }
