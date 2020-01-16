@@ -1,3 +1,5 @@
+// Hard to make this fully responsive, unless I delete half of the lorem ipsum text or remove the images all together
+
 .popup {
     display: flex;
     justify-content: center;
@@ -14,6 +16,15 @@
     visibility: hidden;
     opacity: 0;
     transition: all .3s;
+    
+    // if this is supported by the browser > apply this code
+    @supports(-webkit-backdrop-filter: blur(5px)) or (backdrop-filter: blur(5px)) {
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+        background-color: rgba($color-black, .3);
+    }
+
+    
     
     // when the target in the url (blabla.com/#popup) do the following
     // as soon as its targeted with the href, this target pseudo-class becomes active on the popup element
@@ -42,6 +53,10 @@
         transition: all .5s .2s;
         opacity: 0;
         transform: scale(.25);
+
+        @include respond(tab-port) {
+            flex-direction: column-reverse;
+        }
     }
 
     &__images {
@@ -49,21 +64,34 @@
         flex-direction: column;
         height: 100%;
         width: 33.33333%;
-        box-shadow: 0 2rem 2rem rgba($color-black, .2);        
+        box-shadow: 0 2rem 2rem rgba($color-black, .2);
+        
+        @include respond(tab-port) {
+            flex-direction: row;
+            width: 50%;
+        }
     }
 
     &__img {
-        width: 100%;
-        height: 50%;
+        width: 100%;       
     }
 
     &__text {
-        position: relative;        
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        position: relative;
+        
+        // I removed this because the heading wouldn't have display set to inline-block causing the heading to use 100% width 
+        // and bugged out the close button with it's hover effect
+        
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: center;
+        
         width: 66.666667%;
-        padding: 3rem 5rem;        
+        padding: 3rem 5rem;
+        
+        @include respond(tab-port) {
+            width: auto;
+        }
     }
 
     &__paragraph {

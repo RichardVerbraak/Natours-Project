@@ -50,6 +50,7 @@
         width: 100%;
 
         // hides the back part of a transformed element (think of it like z-index)
+        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
 
         &--front {

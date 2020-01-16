@@ -22,7 +22,6 @@
     
     @include respond(phone) {
         padding: 0 3rem;
-        height: 95rem;
     }
 }
 
@@ -56,19 +55,27 @@
     }
 
     &__shape {
-        position: relative;
-        width: 15rem;
-        height: 15rem;
-        float: left;        
-        shape-outside: circle(50% at 50% 50%);
-        -webkit-shape-outside: circle(50% at 50% 50%);
+        position: relative;        
+        float: left;
 
-        clip-path: circle(50% at 50% 50%);
-        -webkit-clip-path: circle(50% at 50% 50%);
+        // for older firefox
+        border-radius: 50%;
+
         transform: translateX(-3rem) skewX(12deg);
 
         // fixes lines appearing on both sides of shape when hovering story
+        // also hides the image overflowing the shape container in the older firefox browser (@supports lesson) 
         overflow: hidden;
+
+        @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+            width: 15rem;
+            height: 15rem;
+            clip-path: circle(50% at 50% 50%);
+            -webkit-clip-path: circle(50% at 50% 50%);
+            shape-outside: circle(50% at 50% 50%);
+            -webkit-shape-outside: circle(50% at 50% 50%);
+            border-radius: none;
+        }
 
         // has to be the same but just set the skew different
         @include respond(phone) {

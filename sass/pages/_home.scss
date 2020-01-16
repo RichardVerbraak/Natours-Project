@@ -64,7 +64,7 @@
     max-width: $grid-width;
     margin: 0 auto;
 
-    @include respond(500bp) {
+    @include respond(phone) {
         max-width: 50rem;
         padding: 0 3rem;
     }
@@ -80,15 +80,11 @@
     border-radius: 3px;
     box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
 
-    @include respond(700bp) {
+    @include respond(tab-port) {
         background-image: linear-gradient(105deg, rgba($color-white, .9) 0%, rgba($color-white, .9) 60%, transparent 60%) ,url(../img/nat-10.jpg);
-    }
-    
-    @include respond(phone) {
-        background-image: linear-gradient(105deg, rgba($color-white, .9) 0%, rgba($color-white, .9) 70%, transparent 70%) ,url(../img/nat-10.jpg);
-    }
+    }   
 
-    @include respond(500bp) {
+    @include respond(phone) {
         background-image: linear-gradient(to right, rgba($color-white, .9) 0%, rgba($color-white, .9) 100%) ,url(../img/nat-10.jpg);
     }
 
@@ -98,13 +94,9 @@
 
         @include respond(700bp) {
             width: 60%;
-        }
+        }        
 
         @include respond(phone) {
-            width: 70%;
-        }
-
-        @include respond(500bp) {
             width: 100%;
             padding: 5rem;
         }

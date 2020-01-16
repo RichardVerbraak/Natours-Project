@@ -45,7 +45,7 @@ ORDER: Base + Typography > General Layout + Grid (I used flex instead) > Page La
 // ems best option for media queries
 @mixin respond($breakpoint) {
     @if $breakpoint == 500bp {
-        @media (max-width: 31.25em) { @content };
+        @media (max-width: 31.25em) { @content };   // 500px (also for booking form fix)       
     }
 
     @if $breakpoint == phone {
@@ -62,6 +62,10 @@ ORDER: Base + Typography > General Layout + Grid (I used flex instead) > Page La
 
     @if $breakpoint == tab-landscape {
         @media (max-width: 75em) { @content };      // 1200px
+    }
+
+    @if $breakpoint == 1550bp {
+        @media (max-width: 96.875em) { @content };  // 1550px (for fixing the popup)
     }
 
     @if $breakpoint == big-desktop {
