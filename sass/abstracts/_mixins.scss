@@ -44,31 +44,28 @@ ORDER: Base + Typography > General Layout + Grid (I used flex instead) > Page La
 // min-width (apply it when the width is a minimum of X px)
 // ems best option for media queries
 @mixin respond($breakpoint) {
-    @if $breakpoint == 500bp {
-        @media (max-width: 31.25em) { @content };   // 500px (also for booking form fix)       
+
+    @if $breakpoint == 400bp {
+        @media only screen and (max-width: 25em) { @content };    // 370px (for stories component to fix spacing)
     }
 
     @if $breakpoint == phone {
-        @media (max-width: 37.5em) { @content };    // 600px
+        @media only screen and (max-width: 37.5em) { @content };    // 600px
     }
 
     @if $breakpoint == 700bp {
-        @media (max-width: 43.75em) { @content };   // 700px (for the booking form)
+        @media only screen and (max-width: 43.75em) { @content };   // 700px (for the booking form)
     }
 
     @if $breakpoint == tab-port {
-        @media (max-width: 56.25em) { @content };   // 900px
+        @media only screen and (max-width: 56.25em) { @content };   // 900px
     }
 
     @if $breakpoint == tab-landscape {
-        @media (max-width: 75em) { @content };      // 1200px
-    }
-
-    @if $breakpoint == 1550bp {
-        @media (max-width: 96.875em) { @content };  // 1550px (for fixing the popup)
+        @media only screen and (max-width: 75em) { @content };      // 1200px
     }
 
     @if $breakpoint == big-desktop {
-        @media (min-width: 112.5em) { @content };   // 1800px
+        @media only screen and (min-width: 112.5em) { @content };   // 1800px
     }
 }

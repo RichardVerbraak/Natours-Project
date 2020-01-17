@@ -24,9 +24,9 @@
     // and if the width is larger than 600px
     // and 2x screens for safari
     // or use the large image on either resolution but above 2000px
-    @media (min-resolution: 192dpi) and (min-width: 37.5em),
-           (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
-           (min-width: 125em) {
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+           only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+           only screen and (min-width: 125em) {
         background-image: linear-gradient(
         to right bottom,
         rgba($color-primary-light ,0.8),

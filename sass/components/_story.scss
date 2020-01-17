@@ -23,6 +23,7 @@
     @include respond(phone) {
         padding: 0 3rem;
     }
+    
 }
 
 // Could not apply skew by selecting all childs of story because the image was already transformed (-3rem part) and that one took precedence so we just added it in manually
@@ -80,6 +81,10 @@
         // has to be the same but just set the skew different
         @include respond(phone) {
             transform: translateX(-3rem) skewX(0);
+        }
+
+        @include respond(400bp) {
+            display: none;
         }
     }
 
